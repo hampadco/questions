@@ -1,0 +1,67 @@
+ @model List<MV_ViewJoin>
+  <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">List join</h4>
+                  <p class="card-description">
+                   Sort By: <code>.Id </code>
+                  </p>
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>
+                          Rows
+                        </th>
+                        <th>
+                          Doctor's name
+                        </th>
+                        <th>
+                         Questionnaire title
+                        </th>
+                        <th>
+                         Proccess
+                        </th>
+                       
+                      </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                          int i=1;
+
+                       
+                        
+                        foreach (var item in Model)
+                        {
+                             <tr>
+                        <td class="py-1">
+                          @i
+                        </td>
+                        <td>
+                          @item.Name
+                        </td>
+                        <td>
+                          @item.Title
+                        </td>
+                       
+                        <td>
+                          @if (@item.state)
+                          {
+                              <a href="/home/dact/@item.Id">to deactivate</a>
+                          }else
+                          {
+                              <a href="/home/act/@item.Id">Activate</a>
+                          }
+                        </td>
+                      </tr>
+                       i++;
+                        }
+
+                       
+
+                      }
+                     
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>

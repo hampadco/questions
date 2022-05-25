@@ -1,0 +1,33 @@
+ @model List<MV_listquestion> 
+   <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">@ViewBag.t</h4>
+
+                  @foreach (var item in Model)
+                  {
+                    <p class="alert alert-primary" style="padding: 25px;">@item.title_question</p>
+                  }
+
+                  <form class="form-sample" action="/home/addlistques" method="post">
+                    <p class="card-description">
+                      Please enter your question:
+                    </p>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group row">
+                          <textarea required name="ques" cols="30" rows="10" style="width: 100%;padding: 20px;" placeholder="1.sample questions...."></textarea>
+                        </div>
+                        <div class="col-3">
+
+                          <button type="submit" class="btn btn-primary">Save</button>
+
+                        </div>
+                      </div>
+                      
+                    </div>
+                 
+                  </form>
+                </div>
+              </div>
+            </div>

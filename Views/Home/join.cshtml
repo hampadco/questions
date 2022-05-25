@@ -1,0 +1,119 @@
+    @model List<MV_ViewJoin>
+  
+
+
+
+
+
+
+             <div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Join questions</h4>
+                  <p class="card-description">
+                   <code>Connect the doctor to the questions</code> 
+                   @if (@TempData["err"] != null)
+                   {
+                       <p class="alert alert-danfer">@TempData["err"]</p>
+                   }
+                 
+                  </p>
+                  <form class="row" action="/home/addjoin" method="post">
+
+                    <div class="col-6">
+                      <label class="sr-only" for="inlineFormInputName2">Name</label>
+                     <select class="form-control" name="iddoctor" asp-items="@ViewBag.q"  ></select>
+
+
+                    </div>
+
+                    <div class="col-6">
+                      <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                    <div class="input-group mb-2 mr-sm-2">
+                      
+                      <input type="text" class="form-control" value="@ViewBag.q2" placeholder="Username" disabled>
+                    </div>
+                    </div>
+                    
+                              
+                             
+                            
+                  
+                    
+                   <div class="col-3 mt-3">
+                     <button type="submit" class="btn btn-gradient-primary mb-2">join</button>
+
+                   </div>
+                    
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              
+            </div>
+
+
+             <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">List join</h4>
+                  <p class="card-description">
+                   Sort By: <code>.Id </code>
+                  </p>
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>
+                          Rows
+                        </th>
+                        <th>
+                          Doctor's name
+                        </th>
+                        <th>
+                         Questionnaire title
+                        </th>
+                        <th>
+                         Proccess
+                        </th>
+                       
+                      </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                          int i=1;
+
+                       
+                        
+                        foreach (var item in Model)
+                        {
+                             <tr>
+                        <td class="py-1">
+                          @i
+                        </td>
+                        <td>
+                          @item.Name
+                        </td>
+                        <td>
+                          @item.Title
+                        </td>
+                       
+                        <td>
+                          <a href="">delete</a>
+                          |
+                          <a href="">update</a>
+                        </td>
+                      </tr>
+                       i++;
+                        }
+
+                       
+
+                      }
+                     
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>

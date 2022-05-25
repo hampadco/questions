@@ -1,0 +1,68 @@
+  @model List<MV_question>
+  <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">list questions</h4>
+                  <p class="card-description">
+                   Sort By: <code>.Id questions</code>
+                  </p>
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>
+                          Number
+                        </th>
+                        <th>
+                          Title
+                        </th>
+                        <th>
+                         Date Create
+                        </th>
+                        <th>
+                         join
+                        </th>
+                        <th>
+                          process
+                        </th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @{
+                        int i=1;
+                       foreach (var item in Model)
+                        {
+                             <tr>
+                                <td class="py-1">
+                                  @i
+                                </td>
+                                <td>
+                                  @item.title
+                                </td>
+                                <td>
+                                  @item.create_date
+                                </td>
+                                <td>
+                                <a href="/home/join/@item.Id">Join By DR</a>
+                              
+                                <td>
+                                  <a href="">delete</a>
+                                  |
+                                  <a href="">update</a>
+                                  
+                                </td>
+                               
+                             </tr>
+                             i++;
+                      
+                        }
+
+                        }
+
+                     
+                     
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>

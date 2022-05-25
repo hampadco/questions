@@ -1,0 +1,138 @@
+
+@{
+    Layout=null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>questionnaire</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="/images/favicon.png" />
+    <style>
+    .form-control {
+    border: 1px solid #a7abb7 !important;
+    font-family: "ubuntu-regular", sans-serif;
+    font-size: 0.8125rem;
+}
+hr{
+  border: .4px solid #0005ff;
+}
+  </style>
+</head>
+<body>
+
+
+     @model List<MV_listquestions> 
+   <div class="col-12 grid-margin">
+              <div class="card" >
+                <div class="card-body">
+                
+
+
+                   <div  style="border: 1px solid #0005ff;border-radius:15px ;padding: 20px ;" class="">
+                     <div class="row justify-content-center text-primary ">
+                     <div class="col-4 p-3 list-star">Question Title: @ViewBag.questiontitle</div>
+                     <div class="col-4  p-3 list-star"> Time : @DateTime.Now</div>
+                     <div class="col-4 p-3 list-star">Doctor Name:  @ViewBag.doctor</div>
+                     </div>
+                     
+
+                   </div>
+                   <br>
+
+                  <div style="border: 1px solid #0005ff;border-radius:15px ;padding: 20px ;" >
+
+                      
+
+                  
+
+                  <form action="/home/adduser" method="post" class="row">
+                  <div class="col-3 mt-3 mb-3">
+
+                      <input name="Name" value="@ViewBag.name" type="text" class="form-control" placeholder="Name&Family" required>
+                   
+                  </div>
+
+                  <div class="col-3 mt-3 mb-3">
+
+                      <input value="@ViewBag.Email" name="Email" type="text" class="form-control " placeholder="Email" required>
+                   
+                  </div>
+                   <div class=" col-3 mt-3">
+
+                    <button  class="form-control btn btn-light p-2" style="font-size:15px ;" type="submit">Save</button>
+
+                  </div>
+                  </form>
+                 <hr>
+
+                  @foreach (var item in Model)
+                  {
+                     <form action="/home/addanswer" class="row" method="post">
+                      <div class="col-12">
+                          <p class="alert alert-primary col-12" style="padding: 25px;" >@item.title_question</p>
+                           <textarea required name="answer"  cols="30" rows="5" style="width: 100%;padding:20px ;" placeholder="Answer">@item.answer</textarea>
+                           <input type="text" value="@item.Idlistquestion" style="display:none ;" name="Idlistquestion" >
+                      </div>
+ 
+                        <div class=" col-4 mt-3">
+
+                        <button class="form-control btn btn-light p-2" style="font-size:15px ;" type="submit">Save</button>
+
+                         </div>
+
+                     </form>
+                     <hr>
+                  }
+               
+                  
+                  <div class="row justify-content-center">
+                    <div class=" col-4 mt-3">
+
+                        <a href="/home/finaliz" class="form-control btn btn-success p-2" style="font-size:15px ;" type="submit">Finalize</a>
+                         <a onclick="window.print();" class="form-control btn btn-light p-2 mt-3" style="font-size:15px ;">print</a>
+
+                         </div>
+                  </div>
+                 
+
+                 </div>
+            
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+ 
+
+
+             <script src="/vendors/js/vendor.bundle.base.js"></script>
+  <script src="/vendors/js/vendor.bundle.addons.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="/js/off-canvas.js"></script>
+  <script src="/js/misc.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="/js/dashboard.js"></script>
+  <!-- End custom js for this page-->
+</body>
+
+</html>

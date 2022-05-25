@@ -1,0 +1,73 @@
+
+@model List<MV_Users>
+
+             <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">List Users</h4>
+                  <p class="card-description">
+                   Sort By: <code>.Id </code>
+                  </p>
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>
+                          Rows
+                        </th>
+                        <th>
+                          User Name
+                        </th>
+                        <th>
+                           Email
+                        </th>
+                        <th>
+                         creation date
+                        </th>
+                        <th>
+                         Proccess
+                        </th>
+                       
+                      </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                          int i=1;
+
+                       
+                        
+                        foreach (var item in @ViewBag.userme)
+                        {
+                             <tr>
+                        <td class="py-1">
+                          @i
+                        </td>
+                        <td>
+                          @item.Name
+                        </td>
+                        <td>
+                          @item.Email
+                        </td>
+                        <td>
+                            @item.create_date
+                        </td>
+                       
+                        <td>
+                          <a href="">delete</a>
+                          |
+                          <a href="">update</a>
+                           |
+                          <a href="/home/showanswer?id=@item.joinid&&user=@item.Id">ShowAnswer</a>
+                        </td>
+                      </tr>
+                       i++;
+                        }
+
+                       
+
+                      }
+                     
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>

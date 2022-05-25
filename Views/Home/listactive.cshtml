@@ -1,0 +1,107 @@
+
+@{
+    Layout=null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>questionnaire</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="/images/favicon.png" />
+</head>
+<body>
+
+
+
+
+
+
+ @model List<MV_ViewJoin>
+  <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">List Questions</h4>
+                  <p class="card-description">
+                   Time: <code>@DateTime.Now </code>
+                  </p>
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>
+                          Rows
+                        </th>
+                        <th>
+                          Doctor's name
+                        </th>
+                        <th>
+                         Questionnaire title
+                        </th>
+                        <th>
+                         Proccess
+                        </th>
+                       
+                      </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                          int i=1;
+
+                       
+                        
+                        foreach (var item in Model)
+                        {
+                             <tr>
+                        <td class="py-1">
+                          @i
+                        </td>
+                        <td>
+                          @item.Name
+                        </td>
+                        <td>
+                          @item.Title
+                        </td>
+                       
+                        <td>
+                         <a href="/home/answer/@item.Id">Answer</a>
+                        </td>
+                      </tr>
+                       i++;
+                        }
+
+                       
+
+                      }
+                     
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+
+             <script src="/vendors/js/vendor.bundle.base.js"></script>
+  <script src="/vendors/js/vendor.bundle.addons.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="/js/off-canvas.js"></script>
+  <script src="/js/misc.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="/js/dashboard.js"></script>
+  <!-- End custom js for this page-->
+</body>
+
+</html>
